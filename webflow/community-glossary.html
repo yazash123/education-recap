@@ -1,0 +1,25 @@
+<!-- House of the People · community glossary
+     Paste into a Webflow Embed element on the /community-glossary page (full width, no padding).
+     The page itself lives in github.com/yazash123/education-recap (glossary/index.html), served by GitHub Pages. -->
+<div id="hotp-glossary" style="width:100%;margin:0;padding:0">
+  <iframe id="hotp-glossary-frame" title="Community glossary" loading="eager"
+    src="https://yazash123.github.io/education-recap/glossary/"
+    style="display:block;width:100%;height:2400px;border:0;margin:0;padding:0;overflow:hidden" scrolling="no"></iframe>
+</div>
+<script>
+(function () {
+  var f = document.getElementById("hotp-glossary-frame"), origin = "https://yazash123.github.io";
+  /* a link to /community-glossary#chatbot opens at that term */
+  if (location.hash.length > 1) f.src = f.src.split("#")[0] + location.hash;
+  addEventListener("message", function (e) {
+    if (e.origin !== origin || !e.data || !e.data.hotpGlossary) return;
+    if (e.data.hotpGlossary === "height" && e.data.h > 0) f.style.height = Math.ceil(e.data.h) + "px";
+    if (e.data.hotpGlossary === "scroll") {
+      var top = f.getBoundingClientRect().top + scrollY + e.data.y - 16;
+      var smooth = !matchMedia("(prefers-reduced-motion: reduce)").matches;
+      scrollTo({ top: top, behavior: smooth ? "smooth" : "auto" });
+      if (e.data.id) history.replaceState(null, "", "#" + e.data.id);
+    }
+  });
+})();
+</script>
