@@ -6,7 +6,7 @@ Pages from the House of the People's education phase (Second Sitting on AI), ser
 
 | Path | What it is | On the site |
 |---|---|---|
-| `glossary/index.html` | The community glossary: the key AI words members built on together from Session 1, and what they mean. One self-contained page (fonts inlined, no outside requests). | `houseofthepeople.uk/community-glossary` |
+| `glossary/index.html` | The AI glossary: fourteen key words about AI, explained plainly, laid out like the glossary slide from Session 1. One self-contained page (fonts inlined, no outside requests). | `houseofthepeople.uk/community-glossary` |
 | `webflow/community-glossary.html` | The snippet to paste into a Webflow Embed element on that page. It shows the glossary full height, and term links scroll the page. | |
 
 Still to come: the members' recap ("What the House Heard"), once its edits are finished.
