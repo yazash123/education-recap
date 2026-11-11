@@ -51,7 +51,7 @@ a{color:inherit}
   font:700 clamp(19px,1.9vw,34px)/1.06 var(--sans);text-transform:uppercase}
 .idx .nw{white-space:nowrap}
 .idx .fill{background:var(--light-blue)}
-.idx a:hover{box-shadow:inset 0 0 0 6px var(--fg)}
+.idx a:hover{box-shadow:inset 0 0 0 6px var(--white)}
 .idx a:focus-visible{outline:4px solid var(--black);outline-offset:-4px;box-shadow:inset 0 0 0 10px var(--white)}
 @media (max-width:999px){
   .slide{grid-template-columns:repeat(3,minmax(0,1fr))}
@@ -78,7 +78,7 @@ a{color:inherit}
 .terms{display:grid;gap:clamp(14px,1.6vw,20px);padding-top:clamp(28px,3.4vw,48px)}
 .card{display:grid;gap:14px;align-content:start;padding:clamp(24px,3.4vw,48px);background:var(--c);color:var(--fg);scroll-margin-top:16px}
 .card:target{box-shadow:0 0 0 6px var(--black)}
-.card h2{font:600 clamp(30px,3.4vw,46px)/1.08 var(--serif);letter-spacing:-.005em}
+.card h2{font:600 clamp(30px,3.4vw,46px)/1.08 var(--serif);letter-spacing:-.005em;color:var(--white)}
 .def{display:grid;gap:14px;max-width:64ch}
 .def p{font-size:17px;line-height:1.62}
 .def a{text-decoration-thickness:2px;text-underline-offset:3px}
@@ -129,18 +129,18 @@ a{color:inherit}
     <ul class="idx">
       <li><a href="#artificial-intelligence" style="--c:var(--red);--fg:var(--white)"><span>Artificial Intelligence <span class="nw">(AI)</span></span></a></li>
       <li><a href="#machine-learning" style="--c:var(--purple);--fg:var(--white)"><span>Machine Learning <span class="nw">(ML)</span></span></a></li>
-      <li><a href="#data" style="--c:var(--mustard);--fg:var(--black)"><span>Data</span></a></li>
+      <li><a href="#data" style="--c:var(--mustard);--fg:var(--white)"><span>Data</span></a></li>
       <li><a href="#model" style="--c:var(--dark-red);--fg:var(--white)"><span>Model <span class="nw">(“AI Model”)</span></span></a></li>
-      <li><a href="#training-data" style="--c:var(--pink);--fg:var(--black)"><span>Training Data</span></a></li>
-      <li><a href="#generative-ai" style="--c:var(--orange);--fg:var(--black)"><span>Generative AI</span></a></li>
+      <li><a href="#training-data" style="--c:var(--pink);--fg:var(--white)"><span>Training Data</span></a></li>
+      <li><a href="#generative-ai" style="--c:var(--orange);--fg:var(--white)"><span>Generative AI</span></a></li>
       <li><a href="#chatbot" style="--c:var(--dark-green);--fg:var(--white)"><span>Chatbot</span></a></li>
-      <li><a href="#large-language-model" style="--c:var(--orange);--fg:var(--black)"><span>Large Language Model <span class="nw">(LLM)</span></span></a></li>
+      <li><a href="#large-language-model" style="--c:var(--orange);--fg:var(--white)"><span>Large Language Model <span class="nw">(LLM)</span></span></a></li>
       <li><a href="#ai-agent" style="--c:var(--red);--fg:var(--white)"><span>AI Agent <span class="nw">(“Agentic AI”)</span></span></a></li>
       <li><a href="#deepfake" style="--c:var(--purple);--fg:var(--white)"><span>Deepfake</span></a></li>
       <li><a href="#algorithmic-bias" style="--c:var(--dark-red);--fg:var(--white)"><span>Algorithmic Bias</span></a></li>
-      <li><a href="#prompt" style="--c:var(--pink);--fg:var(--black)"><span>Prompt</span></a></li>
+      <li><a href="#prompt" style="--c:var(--pink);--fg:var(--white)"><span>Prompt</span></a></li>
       <li><a href="#hallucination" style="--c:var(--dark-blue);--fg:var(--white)"><span>Hallucination</span></a></li>
-      <li><a href="#artificial-general-intelligence" style="--c:var(--mustard);--fg:var(--black)"><span>Artificial General Intelligence <span class="nw">(AGI)</span></span></a></li>
+      <li><a href="#artificial-general-intelligence" style="--c:var(--mustard);--fg:var(--white)"><span>Artificial General Intelligence <span class="nw">(AGI)</span></span></a></li>
       <li class="fill" aria-hidden="true"></li>
     </ul>
   </nav>
@@ -152,12 +152,12 @@ a{color:inherit}
   </div>
 
   <div class="wrap terms">
-    <article class="card" id="artificial-intelligence" aria-labelledby="artificial-intelligence-h" style="--c:var(--red);--fg:var(--black)">
+    <article class="card" id="artificial-intelligence" aria-labelledby="artificial-intelligence-h" style="--c:var(--red);--fg:var(--white)">
       <h2 id="artificial-intelligence-h">Artificial Intelligence (AI)</h2>
       <div class="def"><p>Artificial Intelligence began as an area of study in the 1950s, and focuses on developing systems which can complete tasks people set them up to do. These tasks include things like sorting information, finding patterns, predicting what comes next, making text or pictures, and controlling machines.</p><p>The concept of “AI” does not have one fixed meaning. Some systems follow exact rules which are defined by people, step by step. Others are not given exact rules, but instead find patterns from many examples (see <a href="#machine-learning"><em>machine learning</em></a>). Many systems mix both.</p><p>Because it is ambiguous, “AI” is used as a label for many different kinds of systems, and the term is often used to make something sound more advanced or exciting. Tools once called AI, like chess-playing programs, often lose the label once they become commonplace. Since the term is used loosely, it is worth asking what a system actually does, rather than assuming your understanding of AI matches that of others.</p></div>
       <p class="up"><a href="#all-terms"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square"/></svg>Back to all terms</a></p>
     </article>
-    <article class="card" id="machine-learning" aria-labelledby="machine-learning-h" style="--c:var(--purple);--fg:var(--black)">
+    <article class="card" id="machine-learning" aria-labelledby="machine-learning-h" style="--c:var(--purple);--fg:var(--white)">
       <h2 id="machine-learning-h">Machine Learning (ML)</h2>
       <div class="def"><p>Machine learning is one method of building an AI system, and is the most common in AI today. Instead of a person writing out exact rules, systems “learn” the patterns present in a large number of examples (see <a href="#data"><em>data</em></a>). The system then uses those patterns to make predictions about new information.</p><p>For example, to build a system that sorts photos of cats and dogs, a person does not write a rule for what a cat looks like. They give the system many photos already labelled “cat” or “dog,” and it works out patterns that tell the two apart.</p></div>
       <p class="up"><a href="#all-terms"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square"/></svg>Back to all terms</a></p>
@@ -192,12 +192,12 @@ a{color:inherit}
       <div class="def"><p>A generative AI system built by finding patterns in very large amounts of text, such as books, articles, and websites. These systems work by predicting the next unit of text (roughly, the next word) based on what came before, and repeating this to build sentences and longer phrases.</p><p>On its own, a language model will only continue text in this way. To make it useful for tasks like answering questions, it is adjusted after this initial training (creating what sits behind many <a href="#chatbot"><em>chatbots</em></a>).</p></div>
       <p class="up"><a href="#all-terms"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square"/></svg>Back to all terms</a></p>
     </article>
-    <article class="card" id="ai-agent" aria-labelledby="ai-agent-h" style="--c:var(--red);--fg:var(--black)">
+    <article class="card" id="ai-agent" aria-labelledby="ai-agent-h" style="--c:var(--red);--fg:var(--white)">
       <h2 id="ai-agent-h">AI Agent (“agentic AI”)</h2>
       <div class="def"><p>An AI system set up to pursue a goal given by a person by carrying out a series of steps, rather than producing a single response. It can be connected to outside tools, such as software that sends messages, searches the web, or changes files, and it uses generated text to work out each next step. Because that text can be wrong in the same ways other AI output can, and the tools take real actions, how much a person reviews the steps before they happen varies, and some systems are designed to run with little or no human checking.</p></div>
       <p class="up"><a href="#all-terms"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square"/></svg>Back to all terms</a></p>
     </article>
-    <article class="card" id="deepfake" aria-labelledby="deepfake-h" style="--c:var(--purple);--fg:var(--black)">
+    <article class="card" id="deepfake" aria-labelledby="deepfake-h" style="--c:var(--purple);--fg:var(--white)">
       <h2 id="deepfake-h">Deepfake</h2>
       <div class="def"><p>A video, image, or audio clip created or altered by AI so that it looks or sounds real, even though it shows something that did not actually happen. Deepfakes are often used to make it appear as if a real person said or did something they did not.</p></div>
       <p class="up"><a href="#all-terms"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square"/></svg>Back to all terms</a></p>
