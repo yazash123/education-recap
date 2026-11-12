@@ -6,8 +6,8 @@ Pages from the House of the People's education phase (Second Sitting on AI), ser
 
 | Path | What it is | On the site |
 |---|---|---|
-| `glossary/index.html` | The AI glossary: fourteen key words about AI, explained plainly, laid out like the glossary slide from Session 1. One self-contained page (fonts inlined, no outside requests). | `houseofthepeople.uk/community-glossary` |
-| `webflow/community-glossary.html` | The snippet to paste into a Webflow Embed element on that page. It shows the glossary full height, and term links scroll the page. | |
+| `glossary/index.html` | The AI glossary: fourteen key words about AI, explained plainly, laid out like the glossary slide from Session 1. One self-contained page (fonts inlined, no outside requests). | `houseofthepeople.uk/ai-glossary` |
+| `webflow/ai-glossary.html` | The snippet to paste into a Webflow Embed element on that page. It shows the glossary full height, and term links scroll the page. | |
 | `recap/` | The members' recap, "What the House Heard": the education phase, Sessions 1–8. Built from the recap artifact: `recap.css` and `recap.js` (the page and its data), `slides/`, `thumbs/` and `img/` (pictures and clips), `links.json` (video playlists), and `index.html` (a standalone copy for checking, not indexed). | a members' page on Webflow |
 | `webflow/recap-embed.html` | The snippet for one Webflow Code Embed element on that page. | |
 
@@ -15,9 +15,9 @@ Pages from the House of the People's education phase (Second Sitting on AI), ser
 
 1. In the repository's **Settings → Pages**, set the source to **Deploy from a branch**, branch `main`, folder `/ (root)`.
 2. The glossary is then at `https://yazash123.github.io/education-recap/glossary/`.
-3. In Webflow, on the `/community-glossary` page, add an **Embed** element and paste in `webflow/community-glossary.html`. Publish the site.
+3. In Webflow, on the `/ai-glossary` page, add an **Embed** element and paste in `webflow/ai-glossary.html`. Publish the site.
 
-A link such as `houseofthepeople.uk/community-glossary#chatbot` opens the glossary at that term.
+A link such as `houseofthepeople.uk/ai-glossary#chatbot` opens the glossary at that term.
 
 ### The recap
 

@@ -1,5 +1,5 @@
 <!-- House of the People · AI glossary
-     Paste into a Webflow Embed element on the /community-glossary page (full width, no padding).
+     Paste into a Webflow Embed element on the /ai-glossary page (full width, no padding).
      The page itself lives in github.com/yazash123/education-recap (glossary/index.html), served by GitHub Pages. -->
 <div id="hotp-glossary" style="width:100%;margin:0;padding:0">
   <iframe id="hotp-glossary-frame" title="AI glossary" loading="eager"
@@ -9,7 +9,7 @@
 <script>
 (function () {
   var f = document.getElementById("hotp-glossary-frame"), origin = "https://yazash123.github.io";
-  /* a link to /community-glossary#chatbot opens at that term */
+  /* a link to /ai-glossary#chatbot opens at that term */
   if (location.hash.length > 1) f.src = f.src.split("#")[0] + location.hash;
   addEventListener("message", function (e) {
     if (e.origin !== origin || !e.data || !e.data.hotpGlossary) return;
