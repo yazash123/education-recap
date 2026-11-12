@@ -885,6 +885,12 @@ body.editing #hotp-recap [data-copy]:empty::before{content:"(blank)";opacity:.5;
 /* a later section's playlist link, under its lead (website, from links.json) */
 #hotp-recap .later-pl{margin-top:18px}
 
+/* Proposals call to action, above the footer */
+#hotp-recap .later .cta{margin-left:var(--map);padding:var(--s-xl) var(--gut) 0;max-width:calc(var(--measure) + 2 * var(--gut));color:#fff}
+#hotp-recap .later .cta-h{font-family:var(--font-serif);font-size:clamp(30px,4vw,48px);line-height:1.08;margin:0 0 12px}
+#hotp-recap .later .cta-p{font-size:18px;line-height:1.5;margin:0 0 22px;color:rgba(255,255,255,.88)}
+#hotp-recap .later .cta-b{font-size:17px;font-weight:600;min-height:52px;padding:12px 24px}
+
 /* ═══ Shared pieces for the members' recap (v4): Session 8 glass buttons, House Notes flip cards, in-place tabs, video placeholders ═══
    Works on both grounds: the light blue sessions above and the dark ground from "Introducing the risk map" down. */
 

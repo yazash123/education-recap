@@ -4846,7 +4846,9 @@ function sessionHtml(s, idx) {
 
 /* ═══ Build the page ═══ */
 const story = $("#story");
-const FOOT = `<footer class="foot">${cx("foot", "From the House of the People's second sitting on AI, run by Assemble with the Odyssean Institute and Involve. Members are anonymous throughout.", "p")}</footer>`;
+const PROPOSALS = "https://www.houseofthepeople.uk/proposals";
+const CTA = `<aside class="cta" aria-labelledby="cta-h">${cx("cta.h", "Your proposals", "h2", "cta-h")}${cx("cta.p", "Take what you’ve heard here to the risk wall and submit your proposals.", "p", "cta-p")}<p class="btns"><a class="btn w cta-b" href="${PROPOSALS}" target="_blank" rel="noopener">${esc(cp("cta.b", "Submit your proposals on the risk wall"))}${ICON.out}<span class="sr"> (opens in a new tab)</span></a></p></aside>`;
+const FOOT = CTA + `<footer class="foot">${cx("foot", "From the House of the People's second sitting on AI, run by Assemble with the Odyssean Institute and Involve. Members are anonymous throughout.", "p")}</footer>`;
 story.innerHTML = timeline() + SES.map(sessionHtml).join("")
   + `<div class="later">${BEATS.map((b) => `<section class="ses beat later-beat" id="${b.id}" aria-labelledby="${b.id}-h"></section>`).join("")}${FOOT}</div>`;
 const tbEl = document.createElement("header"); tbEl.className = "tb"; tbEl.id = "tb"; tbEl.setAttribute("aria-label", cp("tb.label", "Sessions")); tbEl.innerHTML = topbar(); queueMicrotask(() => tbGlass($(".tb-ctl", tbEl)));
