@@ -1962,6 +1962,11 @@ body.editing #hotp-recap [data-copy]:empty::before{content:"(blank)";opacity:.5;
   #hotp-recap #weekend .wk-act:hover .wk-art,#hotp-recap #weekend .ice-chunk:hover{transform:none}
 }
 
+/* links to each activity's own page (open in a new tab) */
+#hotp-recap #weekend .wk-pages{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 0}
+#hotp-recap #weekend a.wk-page{text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+#hotp-recap #weekend .wk-obody[data-k="iceberg"] .wk-pages{margin-top:28px}
+
 /* ── beat: enriched ── */
 /* ======================================================================
    The enriched risk map (What's missing?, Session 7): one scroll section of the members' recap.
