@@ -1097,9 +1097,9 @@ body.editing #hotp-recap [data-copy]:empty::before{content:"(blank)";opacity:.5;
 
 /* ── From Session 5 down, each section's session and date sit under its heading as a dateline, with the brick from Sessions 1–4;
    the smaller labels that used to sit above headings follow them instead ── */
-#hotp-recap :is(#riskmap,#impacts,#weekend,#enriched,#drivers,#futures,#priorities) .dateline.dateline{display:flex;align-items:center;gap:12px;margin:16px 0 0}
-#hotp-recap :is(#riskmap,#impacts,#weekend,#enriched,#drivers,#futures,#priorities) .dateline::before{content:"";flex:none;width:47px;height:20px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 46.8 20'%3E%3Crect width='46.8' height='20' fill='%23E08850'/%3E%3Cg fill='%23C0E8F8'%3E%3Ccircle cx='10.85' cy='10' r='4.1'/%3E%3Ccircle cx='23.4' cy='10' r='4.1'/%3E%3Ccircle cx='35.95' cy='10' r='4.1'/%3E%3C/g%3E%3C/svg%3E") no-repeat center/contain}
-#hotp-recap :is(#riskmap,#impacts,#weekend,#enriched,#drivers,#futures,#priorities) :is(.em-k,.wk-lab,.dv-dkey,.dv-after,.pr-rooms,.ice-dtop,.em-tag,.im-after,.wk-pht .wk-kick):not(.dateline){margin-top:8px;margin-bottom:0}
+#hotp-recap :is(#riskmap,#impacts,#weekend,#enriched,#drivers,#futures,#priorities,#governance) .dateline.dateline{display:flex;align-items:center;gap:12px;margin:16px 0 0}
+#hotp-recap :is(#riskmap,#impacts,#weekend,#enriched,#drivers,#futures,#priorities,#governance) .dateline::before{content:"";flex:none;width:47px;height:20px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 46.8 20'%3E%3Crect width='46.8' height='20' fill='%23E08850'/%3E%3Cg fill='%23C0E8F8'%3E%3Ccircle cx='10.85' cy='10' r='4.1'/%3E%3Ccircle cx='23.4' cy='10' r='4.1'/%3E%3Ccircle cx='35.95' cy='10' r='4.1'/%3E%3C/g%3E%3C/svg%3E") no-repeat center/contain}
+#hotp-recap :is(#riskmap,#impacts,#weekend,#enriched,#drivers,#futures,#priorities,#governance) :is(.em-k,.wk-lab,.dv-dkey,.dv-after,.pr-rooms,.ice-dtop,.em-tag,.im-after,.wk-pht .wk-kick):not(.dateline){margin-top:8px;margin-bottom:0}
 
 /* ── beat: riskmap ── */
 /* ======================================================================
@@ -2882,3 +2882,109 @@ body.editing #hotp-recap [data-copy]:empty::before{content:"(blank)";opacity:.5;
 
 /* the last step holds only "How we counted" (the "Work in progress" heading and line were removed, 12 Nov) */
 #hotp-recap #priorities .pr-step.pr-b3.pr-howonly,#hotp-recap #priorities .pr-step.pr-b3.pr-howonly.is-current{background:none;border-color:transparent;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none;padding-left:0;padding-right:0}
+
+/* ── beat: governance ── */
+/* ======================================================================
+   Session 9, governance & power: one scroll section of the members' recap (Session 8 look).
+   Every rule is scoped to #governance; classes are gv- prefixed. The slide viewer and the
+   "Recording coming soon" tile are the page's own (core.css); only their fit here is adjusted.
+   The section is transparent: the page paints the dark ground behind it.
+   ====================================================================== */
+#hotp-recap #governance{
+  --gv-soft:rgba(255,255,255,.9);--gv-faint:rgba(255,255,255,.72);--gv-hair:rgba(255,255,255,.16);--gv-hair2:rgba(255,255,255,.28);
+  --gv-glass:var(--g-panel,rgba(10,22,40,.52));--gv-ease:cubic-bezier(.22,1,.36,1);
+  --gv-gut:var(--gut,clamp(16px,5vw,72px));
+  display:block;position:relative;background:transparent;border:0;padding:clamp(56px,8vw,120px) var(--gv-gut) clamp(40px,6vw,80px);
+  color:var(--white);font-family:var(--font-sans);font-size:17px;line-height:1.6;text-align:left
+}
+#hotp-recap #governance *,#hotp-recap #governance *::before,#hotp-recap #governance *::after{box-sizing:border-box}
+/* zero-strength reset, so the page's own slide viewer keeps its type */
+#hotp-recap :where(#governance) :where(h2,h3,h4,p,ul,ol,li,blockquote){margin:0;padding:0;max-width:none;font-size:inherit;line-height:inherit;color:inherit;font-weight:inherit;font-family:inherit}
+#hotp-recap :where(#governance) :where(ul,ol){list-style:none}
+#hotp-recap #governance :focus-visible{outline:3px solid var(--mustard);outline-offset:3px}
+#hotp-recap #governance > *{max-width:1240px}
+
+/* ---------- heading ---------- */
+#hotp-recap #governance .gv-head{display:grid;gap:14px;max-width:66ch;margin-bottom:clamp(28px,4vw,48px)}
+#hotp-recap #governance .gv-h2{font:400 clamp(38px,1.2rem + 2.8vw,66px)/1.02 var(--font-serif);letter-spacing:-.015em;text-wrap:balance}
+#hotp-recap #governance .gv-h2 b,#hotp-recap #governance .gv-acth b{font-family:var(--font-sans);font-weight:700;font-size:.86em;letter-spacing:-.03em}
+#hotp-recap #governance .gv-lab{font:700 16px/1.3 var(--font-sans);color:var(--mustard)}
+#hotp-recap #governance .gv-lead{font:400 clamp(20px,1rem + .7vw,26px)/1.4 var(--font-serif);color:var(--white);margin-top:8px}
+#hotp-recap #governance .gv-para{font-size:clamp(16px,.9rem + .25vw,17.5px);line-height:1.6;color:var(--gv-soft)}
+
+/* ---------- who spoke ---------- */
+#hotp-recap #governance .gv-who{margin-bottom:clamp(40px,6vw,72px)}
+#hotp-recap #governance .gv-k{font:700 13px/1.2 var(--font-sans);letter-spacing:.12em;text-transform:uppercase;color:var(--gv-faint);margin-bottom:14px}
+#hotp-recap #governance .gv-sp{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(10px,1.4vw,18px)}
+#hotp-recap #governance .gv-sp a{display:grid;align-content:start;gap:6px;height:100%;padding:18px 20px 20px;border-radius:4px;background:var(--gv-glass);box-shadow:inset 0 0 0 1px var(--gv-hair);
+  color:inherit;text-decoration:none;transition:background-color .35s var(--gv-ease),box-shadow .35s var(--gv-ease)}
+#hotp-recap #governance .gv-sp a:hover{background:rgba(255,255,255,.1);box-shadow:inset 0 0 0 1px var(--gv-hair2)}
+#hotp-recap #governance .gv-sn{font:400 clamp(22px,1.6vw,26px)/1.1 var(--font-serif)}
+#hotp-recap #governance .gv-sr{font-size:14px;line-height:1.45;color:var(--gv-faint)}
+#hotp-recap #governance .gv-st{margin-top:6px;padding-top:10px;border-top:1px solid var(--gv-hair);font-weight:700;font-size:15px;line-height:1.4;color:var(--mustard)}
+
+/* ---------- the talks ---------- */
+#hotp-recap #governance .gv-talk{padding:clamp(28px,4vw,48px) 0;border-top:1px solid var(--gv-hair);scroll-margin-top:var(--tb-c,96px)}
+#hotp-recap #governance .gv-th{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,3vw,48px);align-items:start}
+#hotp-recap #governance .gv-tx{display:grid;gap:12px;align-content:start}
+#hotp-recap #governance .gv-kind{font:700 13px/1.2 var(--font-sans);letter-spacing:.12em;text-transform:uppercase;color:var(--gv-faint)}
+#hotp-recap #governance .gv-h3{font:400 clamp(28px,1rem + 1.8vw,44px)/1.08 var(--font-serif);letter-spacing:-.01em;text-wrap:balance}
+#hotp-recap #governance .gv-name{font-size:16px;line-height:1.5;color:var(--gv-soft)}
+#hotp-recap #governance .gv-name b{font-weight:700;color:var(--white)}
+#hotp-recap #governance .gv-ld{font-size:clamp(16px,.9rem + .25vw,17.5px);line-height:1.6;color:var(--gv-soft);max-width:60ch}
+#hotp-recap #governance .gv-side .vid{box-shadow:0 14px 34px rgba(4,12,24,.35)}
+#hotp-recap #governance .fold{margin-top:clamp(18px,2.4vw,28px)}
+#hotp-recap #governance .gv-inline{margin-top:clamp(20px,2.8vw,32px)}
+/* the decks are a little wider than 16:9 */
+#hotp-recap #governance .pv-fig{aspect-ratio:1224/654}
+#hotp-recap #governance .pv-im{box-shadow:0 14px 34px rgba(4,12,24,.4)}
+#hotp-recap #governance .pv-c{color:var(--white)}
+#hotp-recap #governance .pv-pt{background:rgba(255,255,255,.88)}
+/* who is mobilising: each group's names as pills, as on Anastasia's slides */
+#hotp-recap #governance .pv-gr{display:grid;gap:14px}
+#hotp-recap #governance .pv-gh{font:600 17px/1.25 var(--font-serif);margin-bottom:7px}
+#hotp-recap #governance .pv-chips{display:flex;flex-wrap:wrap;gap:6px}
+#hotp-recap #governance .pv-chips li{padding:3px 10px;border-radius:999px;background:#eef1f6;font-size:14px;line-height:1.4}
+#hotp-recap #governance .pv-gx{font-size:15px;line-height:1.5;margin:0}
+
+/* ---------- the group questions ---------- */
+#hotp-recap #governance .gv-act{padding:clamp(36px,5vw,64px) 0 0;border-top:1px solid var(--gv-hair);scroll-margin-top:var(--tb-c,96px)}
+#hotp-recap #governance .gv-acth{margin-bottom:12px}
+#hotp-recap #governance .gv-act > .gv-ld{margin-bottom:clamp(22px,3vw,36px)}
+#hotp-recap #governance .gv-actg{display:grid;grid-template-columns:minmax(260px,.8fr) minmax(0,2fr);gap:clamp(16px,2vw,28px);align-items:start}
+#hotp-recap #governance .gv-risks{padding:22px 24px 24px;border-radius:4px;background:var(--gv-glass);box-shadow:inset 0 0 0 1px var(--mustard)}
+#hotp-recap #governance .gv-rk{font-size:13.5px;line-height:1.4;color:var(--gv-faint)}
+#hotp-recap #governance .gv-rh4{font:400 clamp(26px,2vw,32px)/1.1 var(--font-serif);margin:6px 0 14px}
+#hotp-recap #governance .gv-tier{font:700 15px/1.3 var(--font-sans);color:var(--mustard);margin:14px 0 8px}
+#hotp-recap #governance .gv-rl{display:grid;gap:6px}
+#hotp-recap #governance .gv-rl li{position:relative;padding:8px 12px 8px 30px;border-radius:4px;background:rgba(255,255,255,.08);font-size:15.5px;line-height:1.4}
+#hotp-recap #governance .gv-rl li::before{content:"";position:absolute;left:12px;top:1.05em;width:8px;height:8px;border-radius:50%;background:var(--light-blue)}
+#hotp-recap #governance .gv-link{display:inline-flex;align-items:center;gap:8px;margin-top:16px;color:var(--white);font-weight:700;font-size:15px;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
+#hotp-recap #governance .gv-link::after{content:"→";text-decoration:none}
+#hotp-recap #governance .gv-link:hover{text-decoration-thickness:2px}
+#hotp-recap #governance .gv-rounds{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(14px,1.6vw,22px)}
+/* a round in its slide's colours: the band, the question on a white card with a coloured rule, the yellow note */
+#hotp-recap #governance .gv-round{display:grid;align-content:start;gap:14px;padding:0 0 22px;border-radius:4px;overflow:hidden;background:var(--rg);color:var(--white)}
+#hotp-recap #governance .gv-round.r1{--rg:var(--dark-blue);--rb:var(--mustard);--rr:#c41e58}
+#hotp-recap #governance .gv-round.r2{--rg:var(--dark-green);--rb:var(--orange);--rr:var(--orange)}
+#hotp-recap #governance .gv-rtop{padding:14px 22px 12px;background:var(--rb);color:var(--black)}
+#hotp-recap #governance .gv-rname{font:400 clamp(24px,1.8vw,30px)/1.1 var(--font-serif)}
+#hotp-recap #governance .gv-time{font:700 12px/1.3 var(--font-sans);letter-spacing:.1em;text-transform:uppercase;margin-top:4px}
+#hotp-recap #governance .gv-q{margin:4px 22px 0;padding:16px 18px 18px 20px;background:#fffdf6;color:var(--black);border-left:6px solid var(--rr);font:400 clamp(19px,1.3vw,22px)/1.35 var(--font-serif)}
+#hotp-recap #governance .gv-note{margin:0 22px;padding:14px 16px;background:var(--yellow);color:var(--black)}
+#hotp-recap #governance .gv-nk{font:700 12px/1.3 var(--font-sans);letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px}
+#hotp-recap #governance .gv-nt{font-size:15px;line-height:1.5}
+#hotp-recap #governance .gv-round .gv-link{margin:0 22px}
+
+/* ---------- narrower screens ---------- */
+@media (max-width:1100px){
+  #hotp-recap #governance .gv-actg{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:899px){
+  #hotp-recap #governance .gv-sp{grid-template-columns:minmax(0,1fr)}
+  #hotp-recap #governance .gv-th{grid-template-columns:minmax(0,1fr)}
+  #hotp-recap #governance .gv-rounds{grid-template-columns:minmax(0,1fr)}
+}
+@media (prefers-reduced-motion:reduce){
+  #hotp-recap #governance .gv-sp a{transition:none}
+}
