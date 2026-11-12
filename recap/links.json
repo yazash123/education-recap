@@ -1,0 +1,13 @@
+{
+  "_read_me": "The page's video links. Paste a YouTube playlist address (or just its list= id) between the quotes, commit, and the page picks it up within a few minutes. Leave a quote empty and that button stays hidden.",
+  "playlists": {
+    "s1": "PLP7VOEvs5JCw",
+    "s2": "PLSzVXvHkXXAM",
+    "s3": "PLao-QWXPB9jg",
+    "s4": "",
+    "s5": "",
+    "s6-7": "",
+    "s8": ""
+  },
+  "jacob_presentation": ""
+}
