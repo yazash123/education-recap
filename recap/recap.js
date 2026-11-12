@@ -4919,7 +4919,10 @@ HOTP.init(document);
   function layout() {
     const start = $(".tl-start", list), end = $(".tl-end", list), l = start.offsetLeft + start.offsetWidth;
     line.style.left = l + "px"; line.style.width = Math.max(0, mid(end) - l) + "px";
-    extra = Math.max(0, Math.ceil(list.offsetWidth - sticky.clientWidth));
+    /* how far the stops run past the frame, measured from where the last one ends: Safari sizes the list from its
+       stops' contents (all positioned, so nothing) rather than their flex widths, and reads it as no wider than the screen */
+    const reach = Math.max(list.offsetWidth, end.offsetLeft + end.offsetWidth);
+    extra = Math.max(0, Math.ceil(reach - sticky.clientWidth));
     sec.style.height = reduce ? "" : sticky.offsetHeight + extra + "px";
     placeNow(); move();
   }

@@ -974,6 +974,9 @@ body.editing #hotp-recap [data-copy]:empty::before{content:"(blank)";opacity:.5;
 /* the Edit text button is for organisers only: .btn's display would otherwise show it to everyone, hidden or not */
 #hotp-recap #edBtn[hidden],#hotp-recap #cxEd[hidden],#hotp-recap #cxSay[hidden]{display:none}
 
+/* a stop's width as a width too, not only a flex basis: Safari works out the timeline's width from its stops' widths */
+#hotp-recap .tl-stop{width:var(--stop);min-width:var(--stop)}
+
 /* ═══ Shared pieces for the members' recap (v4): Session 8 glass buttons, House Notes flip cards, in-place tabs, video placeholders ═══
    Works on both grounds: the light blue sessions above and the dark ground from "Introducing the risk map" down. */
 
