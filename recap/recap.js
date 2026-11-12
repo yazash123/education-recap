@@ -4284,6 +4284,8 @@ const cpRaw = (k, d) => (Object.prototype.hasOwnProperty.call(COPY, k) ? COPY[k]
 /* Edit text can make words bold: *like this* or **like this** (round 8). Where words can't be bold (labels, the top bar), the stars are dropped */
 const STAR = /\*\*([^*\n]+?)\*\*|\*([^*\n]+?)\*/g;
 const cp = (k, d) => String(cpRaw(k, d) == null ? "" : cpRaw(k, d)).replace(STAR, "$1$2");
+/* plain-text places (the top bar) carry their key and default, so wording saved in Edit text reaches them once it loads */
+const cpAt = (k, d) => ` data-cpk="${esc(k)}" data-cpd="${esc(d)}"`;
 const fmt = (t) => esc(t).replace(STAR, (m, a, b) => `<b>${a || b}</b>`);
 const richHtml = (t) => fmt(t).replace(/\[([^\]]+)\]/g, "<b>$1</b>");
 function cxr(k, d, tag = "span", cls = "") { ORIG[k] = d; return `<${tag} data-copy="${esc(k)}" data-rich="1"${cls ? ` class="${cls}"` : ""}>${richHtml(cpRaw(k, d))}</${tag}>`; }
@@ -4406,7 +4408,7 @@ const LOGO = `<svg viewBox="0 0 1194 512" aria-hidden="true" focusable="false"><
 function topbar() {
   const stop = (s) => {
     const go = s.beats ? s.beats[0] : s.go, soon = !go && !s.done && tlDay(s.d) > tlToday();
-    const inner = `<span class="pin" aria-hidden="true"></span><span class="q" aria-hidden="true">${esc(cp(s.qk || "tl." + s.k + ".q", s.q))}</span><span class="lw"><span class="nm">${esc(cp(s.nk || "tl." + s.k + ".name", s.name))}</span><span class="dt">${esc(cp("tl." + s.k + ".date", s.date))}${soon ? ` · ${esc(cp("tl.soon", "Coming up"))}` : ""}</span></span>`;
+    const inner = `<span class="pin" aria-hidden="true"></span><span class="q" aria-hidden="true"${cpAt(s.qk || "tl." + s.k + ".q", s.q)}>${esc(cp(s.qk || "tl." + s.k + ".q", s.q))}</span><span class="lw"><span class="nm"${cpAt(s.nk || "tl." + s.k + ".name", s.name)}>${esc(cp(s.nk || "tl." + s.k + ".name", s.name))}</span><span class="dt"${cpAt("tl." + s.k + ".date", s.date)}>${esc(cp("tl." + s.k + ".date", s.date))}${soon ? ` · ${esc(cp("tl.soon", "Coming up"))}` : ""}</span></span>`;
     return `<li class="tb-stop${soon ? " soon" : ""}" data-k="${s.k}" style="--pc:${s.pc};--qc:${s.qc}">${go ? `<a href="#${go}">${inner}</a>` : `<span class="tb-a">${inner}</span>`}</li>`;
   };
   const b = (cls, lab, ic, x = "") => `<button type="button" class="tb-b ${cls}" aria-label="${esc(lab)}" title="${esc(lab)}"${x}>${ic}</button>`;
@@ -4415,7 +4417,7 @@ function topbar() {
       ${b("tb-ps", cp("tb.ps", "Previous session"), ICON.dprev)}${b("tb-pp", cp("sn.prev", "Previous part"), ICON.prev)}${b("tb-zm", cp("tb.zm", "The parts of this session"), ICON.list, ' aria-expanded="false"')}${b("tb-np", cp("sn.next", "Next part"), ICON.next)}${b("tb-ns", cp("tb.ns", "Next session"), ICON.dnext)}<span class="tb-drop" aria-hidden="true"></span>
     </div>
     <div class="tb-strip"><div class="tb-track"><span class="tb-line" aria-hidden="true"></span>
-      <ol class="tb-stops">${TL.map(stop).join("")}<li class="tb-end"><span class="rail" aria-hidden="true"></span><span class="lw"><span class="nm">${esc(cp("tl.end.name", "in-person sitting"))}</span><span class="dt">${esc(cp("tl.end.date", TLEND.date))}</span></span></li></ol>
+      <ol class="tb-stops">${TL.map(stop).join("")}<li class="tb-end"><span class="rail" aria-hidden="true"></span><span class="lw"><span class="nm"${cpAt("tl.end.name", "in-person sitting")}>${esc(cp("tl.end.name", "in-person sitting"))}</span><span class="dt"${cpAt("tl.end.date", TLEND.date)}>${esc(cp("tl.end.date", TLEND.date))}</span></span></li></ol>
       <div class="tb-sps"></div><span class="tb-ph" aria-hidden="true"></span></div></div>`;
 }
 
@@ -5352,7 +5354,7 @@ const edBtn = $("#edBtn"), cxEd = $("#cxEd"), cxTa = $("#cxTa"), cxSayEl = $("#c
 const cxId = (k) => k.replace(/[^A-Za-z0-9_-]/g, "_");
 let resizeT = 0; const resize = () => { clearTimeout(resizeT); resizeT = setTimeout(() => HOTP.init(document), 60); };
 function cxSay(t) { cxSayEl.textContent = t || ""; cxSayEl.hidden = !t; }
-function applyCopy(k, v) { if (v == null) delete COPY[k]; else COPY[k] = v; const val = cpRaw(k, ORIG[k] || ""); $$(`[data-copy="${CSS.escape(k)}"]`).forEach((e) => { e.innerHTML = e.dataset.rich ? richHtml(val) : fmt(val); }); }
+function applyCopy(k, v) { if (v == null) delete COPY[k]; else COPY[k] = v; const val = cpRaw(k, ORIG[k] || ""); $$(`[data-copy="${CSS.escape(k)}"]`).forEach((e) => { e.innerHTML = e.dataset.rich ? richHtml(val) : fmt(val); }); $$(`[data-cpk="${CSS.escape(k)}"]`).forEach((e) => { e.textContent = cp(k, e.dataset.cpd); }); }
 function cxMode(on) { document.body.classList.toggle("editing", on); edBtn.setAttribute("aria-pressed", String(on)); edBtn.textContent = on ? "Done editing" : "Edit text"; cxSay(on ? "Click any outlined words to change them. Put *stars* around words to make them bold." : ""); if (!on) cxClose(); }
 function cxOpen(node) {
   edKey = node.getAttribute("data-copy"); cxTa.value = cpRaw(edKey, ORIG[edKey] || node.textContent); $("#cxReset").hidden = !Object.prototype.hasOwnProperty.call(COPY, edKey); cxEd.hidden = false;
