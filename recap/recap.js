@@ -4950,6 +4950,21 @@ HOTP.init(document);
 })();
 
 /* ═══ In-page links: a short glide, then focus lands on the section ═══ */
+/* after a jump, sections above may still be finishing their layout (a beat building, a map measuring itself), which
+   would push the target down the page; keep it in place while the page settles, for up to 3 s, and let go the moment
+   the reader scrolls, swipes or presses a key */
+let holdStop = null;
+function hold(t, id) {
+  if (holdStop) holdStop();
+  const want = () => (id === "top" ? 0 : barC());
+  let ro = null, tm = null, raf = 0;
+  const stop = () => { if (ro) ro.disconnect(); clearTimeout(tm); cancelAnimationFrame(raf); ["wheel", "touchstart", "keydown", "pointerdown"].forEach((ev) => removeEventListener(ev, stop, true)); holdStop = null; };
+  const fix = () => { raf = 0; const off = t.getBoundingClientRect().top - want(); if (Math.abs(off) > 2) scrollBy(0, off); };
+  ro = new ResizeObserver(() => { if (!raf) raf = requestAnimationFrame(fix); });
+  const root = document.getElementById("story") || document.body; ro.observe(root); $$(".later-beat", root).forEach((b) => ro.observe(b));
+  ["wheel", "touchstart", "keydown", "pointerdown"].forEach((ev) => addEventListener(ev, stop, { capture: true, passive: true }));
+  tm = setTimeout(stop, 3000); holdStop = stop;
+}
 function goTo(id) {
   let t = document.getElementById(id === "glossary" ? "gloss" : id);
   if (!t) { mountAll(); t = document.getElementById(id === "glossary" ? "gloss" : id); } if (!t) return;
@@ -4971,6 +4986,7 @@ function goTo(id) {
     if (Math.abs(off) > 2 && tries++ < 5) { scrollBy(0, off); setTimeout(settle, 120); return; }
     done = true; document.body.classList.remove("jumping"); spy();
     if (id !== "top") { t.setAttribute("tabindex", "-1"); t.focus({ preventScroll: true }); }
+    hold(t, id);
   };
   if (reduce) setTimeout(settle, 30);
   else { if ("onscrollend" in window) addEventListener("scrollend", () => setTimeout(settle, 30), { once: true }); setTimeout(settle, 1400); }

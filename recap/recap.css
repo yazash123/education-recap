@@ -1,3 +1,84 @@
+/* shield: the host site's rules, undone inside the page */
+:where(#hotp-recap) article,:where(#hotp-recap) aside,:where(#hotp-recap) details,:where(#hotp-recap) figcaption,:where(#hotp-recap) figure,:where(#hotp-recap) footer,:where(#hotp-recap) header,:where(#hotp-recap) hgroup,:where(#hotp-recap) main,:where(#hotp-recap) menu,:where(#hotp-recap) nav,:where(#hotp-recap) section,:where(#hotp-recap) summary{display:revert}
+:where(#hotp-recap) audio,:where(#hotp-recap) canvas,:where(#hotp-recap) progress,:where(#hotp-recap) video{display:revert;vertical-align:revert}
+:where(#hotp-recap) audio:not([controls]){display:revert;height:revert}
+:where(#hotp-recap) [hidden],:where(#hotp-recap) template{display:revert}
+:where(#hotp-recap) a{background-color:revert}
+:where(#hotp-recap) a:active,:where(#hotp-recap) a:hover{outline:revert}
+:where(#hotp-recap) abbr[title]{border-bottom:revert}
+:where(#hotp-recap) b,:where(#hotp-recap) strong{font-weight:revert}
+:where(#hotp-recap) dfn{font-style:revert}
+:where(#hotp-recap) h1{font-size:revert;margin:revert}
+:where(#hotp-recap) mark{background:revert;color:revert}
+:where(#hotp-recap) small{font-size:revert}
+:where(#hotp-recap) sub,:where(#hotp-recap) sup{font-size:revert;line-height:revert;position:revert;vertical-align:revert}
+:where(#hotp-recap) sup{top:revert}
+:where(#hotp-recap) sub{bottom:revert}
+:where(#hotp-recap) img{border:revert}
+:where(#hotp-recap) svg:not(:root){overflow:revert}
+:where(#hotp-recap) hr{box-sizing:revert;height:revert}
+:where(#hotp-recap) pre{overflow:revert}
+:where(#hotp-recap) code,:where(#hotp-recap) kbd,:where(#hotp-recap) pre,:where(#hotp-recap) samp{font-family:revert;font-size:revert}
+:where(#hotp-recap) button,:where(#hotp-recap) input,:where(#hotp-recap) optgroup,:where(#hotp-recap) select,:where(#hotp-recap) textarea{color:revert;font:revert;margin:revert}
+:where(#hotp-recap) button{overflow:revert}
+:where(#hotp-recap) button,:where(#hotp-recap) select{text-transform:revert}
+:where(#hotp-recap) button,html :where(#hotp-recap) input[type="button"],:where(#hotp-recap) input[type="reset"]{-webkit-appearance:revert;appearance:revert;cursor:revert}
+:where(#hotp-recap) button[disabled],html :where(#hotp-recap) input[disabled]{cursor:revert}
+:where(#hotp-recap) input{line-height:revert}
+:where(#hotp-recap) input[type="checkbox"],:where(#hotp-recap) input[type="radio"]{box-sizing:revert;padding:revert}
+:where(#hotp-recap) legend{border:revert;padding:revert}
+:where(#hotp-recap) textarea{overflow:revert}
+:where(#hotp-recap) optgroup{font-weight:revert}
+:where(#hotp-recap) table{border-collapse:revert;border-spacing:revert}
+:where(#hotp-recap) td,:where(#hotp-recap) th{padding:revert}
+:where(#hotp-recap) img{display:revert;max-width:revert;vertical-align:revert}
+:where(#hotp-recap) h1,:where(#hotp-recap) h2,:where(#hotp-recap) h3,:where(#hotp-recap) h4,:where(#hotp-recap) h5,:where(#hotp-recap) h6{font-weight:revert;margin-bottom:revert}
+:where(#hotp-recap) h1{font-size:revert;line-height:revert;margin-top:revert}
+:where(#hotp-recap) h2{font-size:revert;line-height:revert;margin-top:revert}
+:where(#hotp-recap) h3{font-size:revert;line-height:revert;margin-top:revert}
+:where(#hotp-recap) h4{font-size:revert;line-height:revert;margin-top:revert}
+:where(#hotp-recap) h5{font-size:revert;line-height:revert;margin-top:revert}
+:where(#hotp-recap) h6{font-size:revert;line-height:revert;margin-top:revert}
+:where(#hotp-recap) p{margin-bottom:revert;margin-top:revert}
+:where(#hotp-recap) blockquote{border-left:revert;font-size:revert;line-height:revert;margin:revert;padding:revert}
+:where(#hotp-recap) figure{margin:revert}
+:where(#hotp-recap) figcaption{margin-top:revert;text-align:revert}
+:where(#hotp-recap) ul,:where(#hotp-recap) ol{margin-bottom:revert;margin-top:revert;padding-left:revert}
+:where(#hotp-recap) fieldset{border:revert;margin:revert;padding:revert}
+:where(#hotp-recap) button,:where(#hotp-recap) [type="button"],:where(#hotp-recap) [type="reset"]{-webkit-appearance:revert;appearance:revert;border:revert;cursor:revert}
+:where(#hotp-recap) label{display:revert;font-weight:revert;margin-bottom:revert}
+:where(#hotp-recap) h1{font-size:revert;font-weight:revert;letter-spacing:revert;line-height:revert;margin:revert}
+:where(#hotp-recap) h2{font-family:revert;font-size:revert;font-weight:revert;letter-spacing:revert;line-height:revert;margin-bottom:revert;margin-top:revert}
+:where(#hotp-recap) h3{font-size:revert;font-weight:revert;letter-spacing:revert;line-height:revert;margin-bottom:revert;margin-top:revert}
+:where(#hotp-recap) h4{font-size:revert;font-weight:revert;letter-spacing:revert;line-height:revert;margin-bottom:revert;margin-top:revert}
+:where(#hotp-recap) h5{font-size:revert;font-weight:revert;letter-spacing:revert;line-height:revert;margin-bottom:revert;margin-top:revert}
+:where(#hotp-recap) h6{font-size:revert;font-weight:revert;letter-spacing:revert;line-height:revert;margin-bottom:revert;margin-top:revert}
+:where(#hotp-recap) p{line-height:revert;margin-bottom:revert}
+:where(#hotp-recap) a{text-decoration:revert;text-decoration-skip-ink:revert}
+@media screen and (max-width:991px){:where(#hotp-recap) h1{font-size:revert}}
+@media screen and (max-width:991px){:where(#hotp-recap) h2{font-size:revert}}
+@media screen and (max-width:991px){:where(#hotp-recap) h3{font-size:revert}}
+@media screen and (max-width:991px){:where(#hotp-recap) h4{font-size:revert}}
+@media screen and (max-width:991px){:where(#hotp-recap) h5{font-size:revert}}
+@media screen and (max-width:991px){:where(#hotp-recap) h6{font-size:revert}}
+@media screen and (max-width:767px){:where(#hotp-recap) h1{font-size:revert}}
+@media screen and (max-width:767px){:where(#hotp-recap) h2{font-size:revert}}
+@media screen and (max-width:767px){:where(#hotp-recap) h3{font-size:revert}}
+@media screen and (max-width:767px){:where(#hotp-recap) h4{font-size:revert}}
+@media screen and (max-width:767px){:where(#hotp-recap) h5{font-size:revert}}
+@media screen and (max-width:767px){:where(#hotp-recap) h6{font-size:revert}}
+@media screen and (max-width:479px){:where(#hotp-recap) h1{font-size:revert}}
+@media screen and (max-width:479px){:where(#hotp-recap) h2{font-size:revert}}
+@media screen and (max-width:479px){:where(#hotp-recap) h3{font-size:revert}}
+@media screen and (max-width:479px){:where(#hotp-recap) h4{font-size:revert}}
+@media screen and (max-width:479px){:where(#hotp-recap) h5{font-size:revert}}
+:where(#hotp-recap) .grey{color:revert;opacity:revert}
+:where(#hotp-recap) .card{background-color:revert;background-image:revert;border:revert;border-radius:revert;box-shadow:revert;color:revert;flex-flow:revert;list-style-type:revert;overflow:revert}
+:where(#hotp-recap) .wheel{align-self:revert;aspect-ratio:revert;display:revert;height:revert;inset:revert;margin-left:revert;margin-right:revert;margin-top:revert;max-width:revert;object-fit:revert;order:revert;position:revert;width:revert;z-index:revert}
+:where(#hotp-recap) .tabs{background-color:revert;top:revert}
+:where(#hotp-recap) .video{aspect-ratio:revert;max-height:revert;min-height:revert;object-fit:revert;overflow:revert;padding-bottom:revert;position:revert}
+:where(#hotp-recap) .dot{border:revert;border-radius:revert;height:revert;transition:revert;width:revert}
+:where(#hotp-recap) .dot.is-on{background-color:revert;transform:revert}
 /* What the House Heard: members' recap, website build. Generated by v5/core/build_web.py from the page's sources: edit those, not this. */
 #hotp-recap{display:block;position:relative;text-align:left;letter-spacing:normal;text-transform:none;word-spacing:normal}
 #hotp-recap h1{font-size:2em;margin:.67em 0}#hotp-recap h2{font-size:1.5em;margin:.83em 0}#hotp-recap h3{font-size:1.17em;margin:1em 0}
