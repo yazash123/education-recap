@@ -4581,7 +4581,7 @@ function questions(s) {
     ${t.points[4] ? cx("s1.t4.p4", t.points[4], "p", "qs-more") : ""}</section>`;
 }
 /* the AI glossary (renamed from "community glossary", Yaz 11 Nov) has its own page; here, a way in */
-const GLOSS_URL = "https://houseofthepeople.uk/ai-glossary"; /* moved from /community-glossary at Yaz's request, 12 Nov: the page embeds glossary/ from github.com/yazash123/education-recap */
+const GLOSS_URL = "https://www.houseofthepeople.uk/ai-glossary"; /* moved from /community-glossary at Yaz's request, 12 Nov: the page embeds glossary/ from github.com/yazash123/education-recap */
 function glossary(s) {
   return `<section class="gl-in" id="gloss" data-nav="${esc(cp("gl.title", "AI glossary"))}">
     <figure class="gl-pic"><img loading="lazy" src="${SLIDE("s1w-31")}"${wh("s1w-31")} alt=""></figure>
