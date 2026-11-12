@@ -4949,6 +4949,8 @@ HOTP.init(document);
   addEventListener("scroll", () => requestAnimationFrame(move), { passive: true });
   addEventListener("resize", layout); addEventListener("load", layout);
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(layout);
+  /* measure again whenever the stops or the frame change size (late fonts or styles: Safari can start before either) */
+  if (window.ResizeObserver) { let q = 0; new ResizeObserver(() => { if (!q) q = requestAnimationFrame(() => { q = 0; layout(); }); }).observe(list); new ResizeObserver(() => layout()).observe(sticky); }
   layout();
 })();
 
@@ -4959,6 +4961,7 @@ HOTP.init(document);
 let holdStop = null;
 function hold(t, id) {
   if (holdStop) holdStop();
+  if (id === "top") return;   /* nothing above the top to push it down; holding would only fight the first scroll */
   const want = () => (id === "top" ? 0 : barC());
   let ro = null, tm = null, raf = 0;
   const stop = () => { if (ro) ro.disconnect(); clearTimeout(tm); cancelAnimationFrame(raf); ["wheel", "touchstart", "keydown", "pointerdown"].forEach((ev) => removeEventListener(ev, stop, true)); holdStop = null; };
@@ -5416,7 +5419,15 @@ addEventListener("hashchange", () => { const k = (location.hash || "").slice(1);
 
 
 }
-var done = false, go = function (x) { if (done) return; done = true; boot(x); };
-setTimeout(function () { go({}); }, 2500);
-fetch(BASE + "links.json", { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : {}; }).catch(function () { return {}; }).then(go);
+/* start only once recap.css is applied: things measure themselves as they start (the timeline's sideways run), and on a
+   first visit Safari can run this before the stylesheet has arrived. recap.css sets --tb-c on the root. */
+function cssReady(cb) {
+  var t0 = Date.now();
+  (function poll() { if (getComputedStyle(root).getPropertyValue("--tb-c").trim() || Date.now() - t0 > 10000) cb(); else setTimeout(poll, 40); })();
+}
+var links = null, styled = false, started = false;
+function go() { if (started || !styled || !links) return; started = true; boot(links); }
+cssReady(function () { styled = true; go(); });
+setTimeout(function () { if (!links) { links = {}; go(); } }, 2500);
+fetch(BASE + "links.json", { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : {}; }).catch(function () { return {}; }).then(function (x) { if (!links) { links = x || {}; go(); } });
 })();
